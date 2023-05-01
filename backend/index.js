@@ -71,12 +71,12 @@ app.post('/logout', (req, res) => {
   res.cookie('token', '').json('ok')
 })
 
-app.post('/post', uploadMiddleware.single('file'), async (req, res) => {
-  const { originalname, path } = req.file
-  const parts = originalname.split('.')
-  const ext = parts[parts.length - 1]
-  const newPath = path + '.' + ext
-  fs.renameSync(path, newPath)
+app.post('/post',  async (req, res) => {
+  // const { originalname, path } = req.file
+  // const parts = originalname.split('.')
+  // const ext = parts[parts.length - 1]
+  // const newPath = path + '.' + ext
+  // fs.renameSync(path, newPath)
 
   const { token } = req.cookies
   jwt.verify(token, secret, {}, async(err, info) => {
@@ -86,7 +86,7 @@ app.post('/post', uploadMiddleware.single('file'), async (req, res) => {
       title,
       summary,
       content,
-      cover: newPath,
+      // cover: newPath,
       author: info.id, 
     })
     res.json(postDoc)
