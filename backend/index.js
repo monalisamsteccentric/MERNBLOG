@@ -18,6 +18,14 @@ app.use(cors())
 app.use(cookieParser())
 app.use('/uploads', express.static(__dirname+'/uploads'))
 
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'https://mern-blog-frontend-yj4f.onrender.com');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.setHeader('Access-Control-Allow-Credentials', 'true');
+  next();
+});
+
 
 
 const salt = bcrypt.genSaltSync(10);
