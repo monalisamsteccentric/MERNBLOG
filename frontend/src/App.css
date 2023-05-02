@@ -57,7 +57,7 @@ div.post div.texts a{
   color: inherit;
 }
 
-div.post p.info{
+div.post div.info{
   margin: 6px 0;
   color: #888;
   font-size: .7rem;

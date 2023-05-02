@@ -1,21 +1,21 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { UserContext } from '../UserContext'
 
 const Header = () => {
   const { setUserInfo, userInfo } = useContext(UserContext)
   useEffect(()=>{
-   fetch('https://mern-blog-40dw.onrender.com/profile',{
+   fetch('http://localhost:4000/profile',{
     credentials: 'include',
 
    }).then(response=>{
     response.json().then(userInfo=>{
        setUserInfo(userInfo)
     })})
-  },[])
+  },[setUserInfo])
 
   const logout = () =>{
-    fetch('https://mern-blog-40dw.onrender.com/logout',{
+    fetch('http://localhost:4000/logout',{
       credentials:'include',
       method: 'POST'
     })
@@ -29,7 +29,7 @@ const Header = () => {
       {username && <>
           <span>hello, {username}</span>
           <Link to={'/create'}>Create new post</Link>
-          <a onClick={logout}>Logout</a>
+          <Link onClick={logout}>Logout</Link>
       </>}
       {!username && <>
         <Link to='/login'>Login</Link>

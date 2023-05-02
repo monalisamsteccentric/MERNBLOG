@@ -5,7 +5,7 @@ const Register = () => {
     const [password, setpassword] = useState('')
     async function register(e){
        e.preventDefault()
-       const response = await fetch('https://mern-blog-40dw.onrender.com/register',{
+       const response = await fetch('http://localhost:4000/register',{
         method: 'POST',
         body: JSON.stringify({username, password}),
         headers: {'content-type': 'application/json'}

@@ -1,5 +1,4 @@
 import React from 'react'
-import HR from '../assets/HR.png'
 import {format} from 'date-fns'
 import { Link } from 'react-router-dom'
 
@@ -8,7 +7,7 @@ const Post = ({_id,title, summary, cover, content, createdAt, author}) => {
     <div className='post'>
         <div className='image'>
           <Link to={`/post/${_id}`}>
-          <img src={'https://mern-blog-40dw.onrender.com/'+cover} />
+          <img src={'http://localhost:4000/'+cover} alt="cover_image"/>
           </Link>
           
         </div>
@@ -17,10 +16,10 @@ const Post = ({_id,title, summary, cover, content, createdAt, author}) => {
         <h2>{title}</h2>
           </Link>
           
-          <p className='info'>
-            <a className='author'>{author.username}</a>
+          <div className='info'>
+            <span className='author'>{author.username}</span>
             <time>{format(new Date(createdAt),'MMM d, yyyy HH:mm')}</time>
-          </p>
+          </div>
           <p className='summary'>{summary}</p>
         </div>
       </div>

@@ -8,13 +8,13 @@ const PostPage = () => {
   const { userInfo } = useContext(UserContext)
   const { id } = useParams()
   useEffect(() => {
-    fetch(`https://mern-blog-40dw.onrender.com/post/${id}`).then(response => {
+    fetch(`http://localhost:4000/post/${id}`).then(response => {
       response.json().then(PostInfo => {
         setPostInfo(PostInfo)
         console.log(postInfo)
       })
     })
-  }, [])
+  }, [id, postInfo])
 
   if (!postInfo) return "";
 
@@ -34,7 +34,7 @@ const PostPage = () => {
         </div>
       )}
       <div className='image'>
-        <img src={`https://mern-blog-40dw.onrender.com/${postInfo.cover}`} alt="profile" />
+        <img src={`http://localhost:4000/${postInfo.cover}`} alt="profile" />
       </div>
 
       <div className='content' dangerouslySetInnerHTML={{ __html: postInfo.content }} />
