@@ -28,7 +28,7 @@ const EditPost = () => {
    
 
     useEffect(()=>{
-      fetch('http://localhost:4000/post/'+id).then(response=>{
+      fetch('https://mern-blog-40dw.onrender.com/post/'+id).then(response=>{
         response.json().then(postInfo=>{
             setTitle(postInfo.title)
             setContent(postInfo.content)
@@ -49,7 +49,7 @@ const EditPost = () => {
       }
       
 
-       const response = await fetch('http://localhost:4000/post',{
+       const response = await fetch('https://mern-blog-40dw.onrender.com/post',{
         method: 'PUT',
         body: data,
         credentials: 'include',
