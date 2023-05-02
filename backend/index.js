@@ -14,7 +14,7 @@ const fs = require('fs')
 
 const app = express()
 app.use(express.json())
-app.use(cors({ credentials: true, origin: 'https://mern-blog-frontend-yj4f.onrender.com' }))
+app.use(cors({ credentials: true, origin: 'https://cute-boba-11138b.netlify.app' }))
 app.use(cookieParser())
 app.use('/uploads', express.static(__dirname+'/uploads'))
 
